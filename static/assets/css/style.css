@@ -1,0 +1,54 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.home {
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(../images/pexels-mdx014-799091.jpg);
+  background-position: 0 65%;
+  background-size: cover;
+}
+
+.home .tab {
+  display: flex;
+  background: rgb(41, 41, 41);
+  justify-content: space-around;
+  color: rgb(255, 255, 255);
+  height: 10%;
+  align-items: center;
+}
+
+.home .tab p {
+  font-size: 1.3em;
+}
+
+.home .tab ul {
+  list-style: none;
+  display: flex;
+  width: 30%;
+  justify-content: space-between;
+}
+
+.home .tab ul li a {
+  text-decoration: none;
+  color: aliceblue;
+  font-size: 1.1em;
+}
+
+.home .tab a.user {
+  text-decoration: none;
+  color: aliceblue;
+  border: 1px solid #fff;
+  padding: 8px 13px;
+  transition: 0.5s;
+}
+
+.home .tab a.user:hover {
+  background: rgb(253, 139, 45);
+  border: 2px solid transparent;
+  color: rgb(31, 31, 31);
+}

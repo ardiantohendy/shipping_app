@@ -1,9 +1,11 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../static/assets/css/style.css" />
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet" />
     <title>Document</title>
   </head>
   <body>
@@ -16,7 +18,7 @@
           <li><a href="#">Services</a></li>
           <li><a href="#">Contact Us</a></li>
         </ul>
-        <a class="user" href="#">Hello User</a>
+        <a class="user" href="#">Login</a>
       </div>
     </div>
   </body>

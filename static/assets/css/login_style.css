@@ -68,28 +68,3 @@
   color: rgb(31, 31, 31);
   background: rgb(253, 139, 45);
 }
-
-.container form .tologin {
-  text-align: center;
-  margin-bottom: 3%;
-}
-
-.container form .tologin p {
-  margin-bottom: 8%;
-}
-
-.container form .tologin a {
-  text-decoration: none;
-  color: aliceblue;
-  background: rgb(31, 31, 31);
-  border-radius: 4px;
-  padding: 8px 40px;
-  transition: 0.3s;
-  text-transform: uppercase;
-}
-
-.container form .tologin a:hover {
-  background: rgb(253, 139, 45);
-  border: 2px solid transparent;
-  color: rgb(31, 31, 31);
-}

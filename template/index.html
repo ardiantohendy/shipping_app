@@ -18,7 +18,11 @@
           <li><a href="#">Services</a></li>
           <li><a href="#">Contact Us</a></li>
         </ul>
+        {% if user.is_authenticated %}
+        <a class="user" href="logout">Logout</a>
+        {% else %}
         <a class="user" href="register">Register</a>
+        {% endif %}
       </div>
       <div class="main">
         {% if user.is_authenticated %}

@@ -18,7 +18,14 @@
           <li><a href="#">Services</a></li>
           <li><a href="#">Contact Us</a></li>
         </ul>
-        <a class="user" href="login">Login</a>
+        <a class="user" href="register">Register</a>
+      </div>
+      <div class="main">
+        {% if user.is_authenticated %}
+        <h1>Hello {{user.username}}</h1>
+        {% else %}
+        <h1>Hello User</h1>
+        {% endif %}
       </div>
     </div>
   </body>

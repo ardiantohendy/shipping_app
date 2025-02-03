@@ -9,9 +9,17 @@
     <link rel="stylesheet" href="{% static 'assets/css/register_style.css' %}" />
   </head>
   <body>
+    {% for message in messages %}
+    <div class="pop">
+      <p>{{message}}</p>
+      <div class="btn">
+        <a href="#">Ok</a>
+      </div>
+    </div>
+    {% endfor %}
     <div class="main_login">
       <div class="container">
-        <form action="">
+        <form action="register" method="POST">
           <h1>Register</h1>
           {% csrf_token %}
           <div class="form-group">

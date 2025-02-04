@@ -24,12 +24,30 @@
         <a class="user" href="register">Register</a>
         {% endif %}
       </div>
+
       <div class="main">
-        {% if user.is_authenticated %}
-        <h1>Hello {{user.username}}</h1>
-        {% else %}
-        <h1>Hello User</h1>
-        {% endif %}
+        <div class="title">
+          {% if user.is_authenticated %}
+          <h1>
+            Welcome to Docker <br />
+            {{user.username}}
+          </h1>
+          {% else %}
+          <h1>
+            Welcome to <br />
+            docker
+          </h1>
+          {% endif %}
+          <p>send cargo quickly, safely and reliably to various places</p>
+        </div>
+        <div class="main_content">
+          <ul>
+            <li><a href="cargo/">Send Cargo</a></li>
+            <li><a href="#">Check Cargo</a></li>
+            <li><a href="#">Track Cargo</a></li>
+            <li><a href="#">Price Estimated</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </body>

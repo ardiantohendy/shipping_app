@@ -1,5 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User, auth
+from django.contrib.auth.decorators import login_required
+from .models import Cargo
+from .forms import CargoForm
 # from django.http import HttpResponse
 from django.contrib import messages
 
@@ -7,6 +10,7 @@ from django.contrib import messages
 
 def index(request):
     return render(request, 'index.html')
+
 
 def register(request):
     if request.method == 'POST':
@@ -32,6 +36,7 @@ def register(request):
     else:
         return render(request, 'register.html')
 
+
 def login(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -48,6 +53,49 @@ def login(request):
     else:
         return render(request, 'login.html')
 
+
 def logout(request):
     auth.logout(request)
     return redirect('/')
+
+#user CRUD
+
+@login_required
+def list_cargo(request):
+    cargos = Cargo.objects.filter(user=request.user)
+    return render(request, 'cargo_list.html', {'cargos': cargos})
+
+
+@login_required
+def add_cargo(request):
+    if request.method == 'POST':
+        form = CargoForm(request.POST)
+        if form.is_valid():
+            cargo = form.save(commit=False)
+            cargo.user = request.user
+            cargo.save()
+            return redirect('list_cargo')
+    else:
+        form = CargoForm()
+    return render(request, 'cargo_form.html', {'form': form})
+
+
+@login_required
+def edit_cargo(request, id):
+    cargo = get_object_or_404(Cargo, id=id, user=request.user)
+    if request.method == 'POST':
+        form = CargoForm(request.POST, instance=cargo)
+        if form.is_valid():
+            form.save()
+            return redirect('list_cargo')
+    else:
+        form = CargoForm(instance=cargo)
+    return render(request, 'cargo_form.html', {'form': form})
+
+
+@login_required
+def delete_cargo(request, id):
+    cargo = get_object_or_404(Cargo, id=id, user=request.user)
+    cargo.delete()
+    return redirect('list_cargo')
+

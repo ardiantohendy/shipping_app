@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    {% for cargo in cargos %}
+    <p>{{ cargo.jenis_cargo }} - {{ cargo.tujuan_pengiriman }}</p>
+    <a href="{% url 'edit_cargo' cargo.id %}">Edit</a>
+    <a href="{% url 'delete_cargo' cargo.id %}">Delete</a>
+    {% endfor %}
+    <br /><br />
+    <a href="{% url 'add_cargo' %}">Tambah Cargo</a>
+  </body>
+</html>

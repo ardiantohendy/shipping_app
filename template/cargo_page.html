@@ -6,12 +6,14 @@
     <title>Document</title>
   </head>
   <body>
+    <form method="POST">
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit">Simpan</button>
+    </form>
     {% for cargo in cargos %}
     <p>{{ cargo.jenis_cargo }} - {{ cargo.tujuan_pengiriman }}</p>
     <a href="{% url 'edit_cargo' cargo.id %}">Edit</a>
     <a href="{% url 'delete_cargo' cargo.id %}">Delete</a>
     {% endfor %}
-    <br /><br />
-    <a href="{% url 'add_cargo' %}">Tambah Cargo</a>
   </body>
 </html>

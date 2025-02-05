@@ -1,19 +1,55 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="{% static 'assets/css/cargo_style.css' %}" />
   </head>
   <body>
-    <form method="POST">
-      {% csrf_token %} {{ form.as_p }}
-      <button type="submit">Simpan</button>
-    </form>
-    {% for cargo in cargos %}
-    <p>{{ cargo.jenis_cargo }} - {{ cargo.tujuan_pengiriman }}</p>
-    <a href="{% url 'edit_cargo' cargo.id %}">Edit</a>
-    <a href="{% url 'delete_cargo' cargo.id %}">Delete</a>
-    {% endfor %}
+    <div class="content">
+      {% for cargo in cargos %}
+      <div class="tab">
+        <p>Jenis Cargo : {{cargo.jenis_cargo}}</p>
+        <p>Berat Cargo : {{cargo.berat}} Kg</p>
+        <p>Ukuran Cargo : {{cargo.ukuran}} M</p>
+        <p>Agen Pengiriman : {{cargo.agen_pengiriman}}</p>
+        <p>Tujuan Pengiriman : {{cargo.tujuan_pengiriman}}</p>
+        <p>Nama Pengirim : {{cargo.nama_pengirim}}</p>
+        <p>Nama Penerima : {{cargo.nama_penerima}}</p>
+        <a href="{% url 'edit_cargo' cargo.id %}">Edit</a>
+        <a href="{% url 'delete_cargo' cargo.id %}">Delete</a>
+      </div>
+      {% endfor %}
+      <div class="tab-form">
+        <form method="POST" class="cargo-form">
+          {% csrf_token %}
+          <label for="id_jenis_cargo">Jenis Cargo:</label>
+          {{ form.jenis_cargo }}
+
+          <label for="id_berat">Berat barang:</label>
+          {{form.berat}}
+
+          <label for="id_ukuran">Ukuran Barang:</label>
+          {{form.ukuran}}
+
+          <label for="id_agen_pengiriman">Agen Pengirim:</label>
+          {{form.agen_pengiriman}}
+
+          <label for="id_tujuan_pengiriman">Tujuan Pengiriman:</label>
+          {{form.tujuan_pengiriman}}
+
+          <label for="id_nama_pengirim">Nama Pengirim:</label>
+          {{form.nama_pengirim}}
+
+          <label for="id_nama_penerima">Nama Penerima:</label>
+          {{form.nama_penerima}}
+
+          <button type="submit">Kirim</button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>

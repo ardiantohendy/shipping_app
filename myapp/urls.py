@@ -10,5 +10,4 @@ urlpatterns = [
     path('cargo/add/', views.cargo_view, name='cargo_view'),
     path('cargo/edit/<int:id>/', views.edit_cargo, name='edit_cargo'),
     path('cargo/delete/<int:id>/', views.delete_cargo, name='delete_cargo'),
-
 ]

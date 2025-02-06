@@ -60,10 +60,10 @@ def logout(request):
 
 #user CRUD
 
-# @login_required
-# def list_cargo(request):
-#     cargos = Cargo.objects.filter(user=request.user)
-#     return render(request, 'cargo_list.html', {'cargos': cargos})
+@login_required
+def check_cargo(request):
+    cargos = Cargo.objects.filter(user=request.user)
+    return render(request, 'check_cargo.html', {'cargos': cargos})
 
 
 @login_required

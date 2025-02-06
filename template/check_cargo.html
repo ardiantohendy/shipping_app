@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    {% for cargo in cargos %}
+    <div class="tab">
+      <p>Jenis Cargo : {{cargo.jenis_cargo}}</p>
+      <p>Berat Cargo : {{cargo.berat}} Kg</p>
+      <p>Ukuran Cargo : {{cargo.ukuran}} M</p>
+      <p>Agen Pengiriman : {{cargo.agen_pengiriman}}</p>
+      <p>Tujuan Pengiriman : {{cargo.tujuan_pengiriman}}</p>
+      <p>Nama Pengirim : {{cargo.nama_pengirim}}</p>
+      <p>Nama Penerima : {{cargo.nama_penerima}}</p>
+      <a href="{% url 'edit_cargo' cargo.id %}">Edit</a>
+      <a href="{% url 'delete_cargo' cargo.id %}">Delete</a>
+    </div>
+    {% endfor %}
+  </body>
+</html>

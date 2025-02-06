@@ -10,19 +10,7 @@
   </head>
   <body>
     <div class="content">
-      {% for cargo in cargos %}
-      <div class="tab">
-        <p>Jenis Cargo : {{cargo.jenis_cargo}}</p>
-        <p>Berat Cargo : {{cargo.berat}} Kg</p>
-        <p>Ukuran Cargo : {{cargo.ukuran}} M</p>
-        <p>Agen Pengiriman : {{cargo.agen_pengiriman}}</p>
-        <p>Tujuan Pengiriman : {{cargo.tujuan_pengiriman}}</p>
-        <p>Nama Pengirim : {{cargo.nama_pengirim}}</p>
-        <p>Nama Penerima : {{cargo.nama_penerima}}</p>
-        <a href="{% url 'edit_cargo' cargo.id %}">Edit</a>
-        <a href="{% url 'delete_cargo' cargo.id %}">Delete</a>
-      </div>
-      {% endfor %}
+      
       <div class="tab-form">
         <form method="POST" class="cargo-form">
           {% csrf_token %}
@@ -49,7 +37,6 @@
 
           <button type="submit">Kirim</button>
         </form>
-      </div>
     </div>
   </body>
 </html>

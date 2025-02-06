@@ -67,14 +67,14 @@ def check_cargo(request):
 
 
 @login_required
-def cargo_view(request):
+def add_cargo(request):
     if request.method == 'POST':
         form = CargoForm(request.POST)
         if form.is_valid():
             cargo = form.save(commit=False)
             cargo.user = request.user
             cargo.save()
-            return redirect('cargo_view')
+            return redirect('check_cargo')
     else:
         form = CargoForm()
     return render(request, 'cargo_page.html', {'form': form})
@@ -87,7 +87,7 @@ def edit_cargo(request, id):
         form = CargoForm(request.POST, instance=cargo)
         if form.is_valid():
             form.save()
-            return redirect('cargo_view')
+            return redirect('check_cargo')
     else:
         form = CargoForm(instance=cargo)
     return render(request, 'cargo_form.html', {'form': form})
@@ -97,5 +97,5 @@ def edit_cargo(request, id):
 def delete_cargo(request, id):
     cargo = get_object_or_404(Cargo, id=id, user=request.user)
     cargo.delete()
-    return redirect('cargo_view')
+    return redirect('check_cargo')
 

@@ -24,20 +24,40 @@
         <a class="user" href="register">Register</a>
         {% endif %}
       </div>
-      {% for cargo in cargos %}
-      <div class="table">
-        <p>Jenis Cargo : {{cargo.jenis_cargo}}</p>
-        <p>Berat Cargo : {{cargo.berat}} Kg</p>
-        <p>Ukuran Cargo : {{cargo.ukuran}} M</p>
-        <p>Agen Pengiriman : {{cargo.agen_pengiriman}}</p>
-        <p>Tujuan Pengiriman : {{cargo.tujuan_pengiriman}}</p>
-        <p>Nama Pengirim : {{cargo.nama_pengirim}}</p>
-        <p>Nama Penerima : {{cargo.nama_penerima}}</p>
-        <p>Didaftarkan Pada: {{cargo.created_at}}</p>
-        <a href="{% url 'edit_cargo' cargo.id %}">Edit</a>
-        <a href="{% url 'delete_cargo' cargo.id %}">Delete</a>
-      </div>
-      {% endfor %}
+
+      <table>
+        <thead>
+          <tr>
+            <th>Cargo Type</th>
+            <th>Weight (Kg)</th>
+            <th>Dimension (Cm)</th>
+            <th>Delivery Place</th>
+            <th>Delivery Destination</th>
+            <th>Sender Name</th>
+            <th>Recipient's name</th>
+            <th>Registered On</th>
+            <th>Edit Data</th>
+            <th>Delete Data</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for cargo in cargos %}
+          <tr>
+            <td>{{cargo.jenis_cargo}}</td>
+            <td>{{cargo.berat}}</td>
+            <td>{{cargo.ukuran}}</td>
+            <td>{{cargo.agen_pengiriman}}</td>
+            <td>{{cargo.tujuan_pengiriman}}</td>
+            <td>{{cargo.nama_pengirim}}</td>
+            <td>{{cargo.nama_penerima}}</td>
+            <td>{{cargo.created_at}}</td>
+            <td><a href="{% url 'edit_cargo' cargo.id %}">Edit</a></td>
+            <td><a href="{% url 'delete_cargo' cargo.id %}">Delete</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
     </div>
   </body>
 </html>

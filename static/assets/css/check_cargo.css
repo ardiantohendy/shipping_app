@@ -6,7 +6,7 @@
 }
 
 .content {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   background: rgb(81, 81, 81);
 }
@@ -16,7 +16,7 @@
   background: rgb(41, 41, 41);
   justify-content: space-around;
   color: rgb(255, 255, 255);
-  height: 10%;
+  height: 5rem;
   align-items: center;
 }
 
@@ -52,17 +52,17 @@
 }
 
 .tab-container {
-  background-color: whitesmoke;
   width: fit-content;
   margin: auto;
+  padding: 25px 0;
 }
 
 .content .content-table {
   border-collapse: collapse;
-  margin: 25px 0;
   font-size: 0.9em;
   width: 100%;
   text-align: center;
+  background-color: whitesmoke;
 }
 
 .content .content-table thead tr {

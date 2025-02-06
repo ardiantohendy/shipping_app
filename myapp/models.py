@@ -14,4 +14,4 @@ class Cargo(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'{self.jenis_cargo} - {self.nama_penerima}'
+        return f'{self.user} - {self.jenis_cargo} - {self.nama_penerima}'

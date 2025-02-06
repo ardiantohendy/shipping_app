@@ -17,6 +17,7 @@
       <p>Tujuan Pengiriman : {{cargo.tujuan_pengiriman}}</p>
       <p>Nama Pengirim : {{cargo.nama_pengirim}}</p>
       <p>Nama Penerima : {{cargo.nama_penerima}}</p>
+      <p>Didaftarkan Pada: {{cargo.created_at}}</p>
       <a href="{% url 'edit_cargo' cargo.id %}">Edit</a>
       <a href="{% url 'delete_cargo' cargo.id %}">Delete</a>
     </div>

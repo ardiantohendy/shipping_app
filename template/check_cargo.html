@@ -5,22 +5,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'assets/css/check_cargo.css' %}" />
     <title>Document</title>
   </head>
   <body>
-    {% for cargo in cargos %}
-    <div class="tab">
-      <p>Jenis Cargo : {{cargo.jenis_cargo}}</p>
-      <p>Berat Cargo : {{cargo.berat}} Kg</p>
-      <p>Ukuran Cargo : {{cargo.ukuran}} M</p>
-      <p>Agen Pengiriman : {{cargo.agen_pengiriman}}</p>
-      <p>Tujuan Pengiriman : {{cargo.tujuan_pengiriman}}</p>
-      <p>Nama Pengirim : {{cargo.nama_pengirim}}</p>
-      <p>Nama Penerima : {{cargo.nama_penerima}}</p>
-      <p>Didaftarkan Pada: {{cargo.created_at}}</p>
-      <a href="{% url 'edit_cargo' cargo.id %}">Edit</a>
-      <a href="{% url 'delete_cargo' cargo.id %}">Delete</a>
+    <div class="content">
+      <div class="tab">
+        <p>DOCKER</p>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+        {% if user.is_authenticated %}
+        <a class="user" href="logout">Logout</a>
+        {% else %}
+        <a class="user" href="register">Register</a>
+        {% endif %}
+      </div>
+      {% for cargo in cargos %}
+      <div class="table">
+        <p>Jenis Cargo : {{cargo.jenis_cargo}}</p>
+        <p>Berat Cargo : {{cargo.berat}} Kg</p>
+        <p>Ukuran Cargo : {{cargo.ukuran}} M</p>
+        <p>Agen Pengiriman : {{cargo.agen_pengiriman}}</p>
+        <p>Tujuan Pengiriman : {{cargo.tujuan_pengiriman}}</p>
+        <p>Nama Pengirim : {{cargo.nama_pengirim}}</p>
+        <p>Nama Penerima : {{cargo.nama_penerima}}</p>
+        <p>Didaftarkan Pada: {{cargo.created_at}}</p>
+        <a href="{% url 'edit_cargo' cargo.id %}">Edit</a>
+        <a href="{% url 'delete_cargo' cargo.id %}">Delete</a>
+      </div>
+      {% endfor %}
     </div>
-    {% endfor %}
   </body>
 </html>

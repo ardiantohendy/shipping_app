@@ -10,8 +10,22 @@
   </head>
   <body>
     <div class="content">
-      
-      <div class="tab-form">
+      <div class="tab">
+        <p>DOCKER</p>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+        {% if user.is_authenticated %}
+        <a class="user" href="logout">Logout</a>
+        {% else %}
+        <a class="user" href="register">Register</a>
+        {% endif %}
+      </div>
+
+      <div class="form">
         <form method="POST" class="cargo-form">
           {% csrf_token %}
           <label for="id_jenis_cargo">Jenis Cargo:</label>

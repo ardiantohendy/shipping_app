@@ -52,3 +52,41 @@
   border: 1px solid rgb(253, 139, 45);
   color: rgb(31, 31, 31);
 }
+
+.sub-content {
+  display: flex;
+}
+/* 
+.form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.tab-container {
+  width: fit-content;
+  margin: auto;
+  padding: 25px 0;
+}
+
+.content .content-table {
+  border-collapse: collapse;
+  font-size: 0.9em;
+  width: 100%;
+  text-align: center;
+  background-color: whitesmoke;
+}
+
+.content .content-table thead tr {
+  background-color: rgb(253, 139, 45);
+  color: whitesmoke;
+  font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
+}
+
+.content-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+} */

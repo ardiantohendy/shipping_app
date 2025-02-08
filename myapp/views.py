@@ -68,6 +68,7 @@ def check_cargo(request):
 
 @login_required
 def add_cargo(request):
+    cargos = Cargo.objects.filter(user=request.user)
     if request.method == 'POST':
         form = CargoForm(request.POST)
         if form.is_valid():
@@ -77,7 +78,7 @@ def add_cargo(request):
             return redirect('check_cargo')
     else:
         form = CargoForm()
-    return render(request, 'cargo_page.html', {'form': form})
+    return render(request, 'cargo_page.html', {'form': form, 'cargos': cargos})
 
 
 @login_required

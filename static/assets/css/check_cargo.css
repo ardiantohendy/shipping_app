@@ -79,3 +79,18 @@
 .content-table tbody tr {
   border-bottom: 1px solid #dddddd;
 }
+
+.content-table tbody a {
+  text-decoration: none;
+  color: whitesmoke;
+  padding: 0.5rem 0.8rem;
+  margin: 0 3px 0 3px;
+}
+
+.content-table tbody a.edit {
+  background-color: rgb(61, 232, 58);
+}
+
+.content-table tbody a.delete {
+  background-color: rgb(255, 55, 0);
+}

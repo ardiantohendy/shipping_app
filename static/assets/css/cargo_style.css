@@ -98,7 +98,6 @@
   width: 120px;
   height: 34px;
   border: none;
-  border-radius: 4px;
   outline: none;
   background: rgb(31, 31, 31);
   cursor: pointer;
@@ -125,7 +124,7 @@
 .tab-container p {
   text-align: center;
   font-size: 1.6em;
-  margin: 1.2rem 0;
+  margin: 1.2rem 0 2rem;
 }
 
 .content .content-table {
@@ -148,4 +147,19 @@
 
 .content-table tbody tr {
   border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody a {
+  text-decoration: none;
+  color: whitesmoke;
+  padding: 0.5rem 0.8rem;
+  margin: 0 3px 0 3px;
+}
+
+.content-table tbody a.edit {
+  background-color: rgb(61, 232, 58);
+}
+
+.content-table tbody a.delete {
+  background-color: rgb(255, 55, 0);
 }

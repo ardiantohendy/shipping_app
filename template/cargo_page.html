@@ -54,33 +54,28 @@
           </form>
       </div>     
         <div class="tab-container">
-          <p>Input Your Cargo Data and Information</p>
+          <p>All Your Shippment Datas</p>
           <table class="content-table">
             <thead>
               <tr>
-                <th>Cargo Type</th>
-                
+                <th>Cargo Type</th>              
                 <th>Delivery Destination</th>
-                
                 <th>Recipient's name</th>
                 <th>Registered On</th>
-                <th>Edit Data</th>
-                <th>Delete Data</th>
+                <th>Edit/Delete Data</th>
               </tr>
             </thead>
-  
             <tbody>
               {% for cargo in cargos %}
               <tr>
                 <td>{{cargo.jenis_cargo}}</td>
-                
-
                 <td>{{cargo.tujuan_pengiriman}}</td>
-
                 <td>{{cargo.nama_penerima}}</td>
                 <td>{{cargo.created_at}}</td>
-                <td><a href="{% url 'edit_cargo' cargo.id %}">Edit</a></td>
-                <td><a href="{% url 'delete_cargo' cargo.id %}">Delete</a></td>
+                <td>
+                  <a class="edit" href="{% url 'edit_cargo' cargo.id %}">Edit</a>
+                  <a class="delete" href="{% url 'delete_cargo' cargo.id %}">Delete</a>
+                </td>
               </tr>
               {% endfor %}
             </tbody>

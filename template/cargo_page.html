@@ -58,10 +58,10 @@
           <table class="content-table">
             <thead>
               <tr>
-                <th>Cargo Type</th>              
+                <th>Cargo Type</th>   
+                <th>Delivery Place</th>           
                 <th>Delivery Destination</th>
                 <th>Recipient's name</th>
-                <th>Registered On</th>
                 <th>Edit/Delete Data</th>
               </tr>
             </thead>
@@ -80,9 +80,9 @@
               {% for cargo in cargos %}
               <tr>
                 <td>{{cargo.jenis_cargo}}</td>
+                <td>{{cargo.agen_pengiriman}}</td>
                 <td>{{cargo.tujuan_pengiriman}}</td>
                 <td>{{cargo.nama_penerima}}</td>
-                <td>{{cargo.created_at}}</td>
                 <td>
                   <a class="edit" href="{% url 'edit_cargo' cargo.id %}">Edit</a><a class="delete" href="{% url 'delete_cargo' cargo.id %}">Delete</a>
                 </td>

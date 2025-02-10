@@ -60,13 +60,13 @@ def logout(request):
 
 #user CRUD
 
-@login_required
+@login_required(login_url='login')
 def check_cargo(request):
     cargos = Cargo.objects.filter(user=request.user)
     return render(request, 'check_cargo.html', {'cargos': cargos})
 
 
-@login_required
+@login_required(login_url='login')
 def add_cargo(request):
     cargos = Cargo.objects.filter(user=request.user)
     if request.method == 'POST':
